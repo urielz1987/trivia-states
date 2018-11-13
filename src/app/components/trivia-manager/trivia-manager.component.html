@@ -1,0 +1,15 @@
+<app-question
+	#question
+	*ngIf="gamaStarted" 
+	(selectedAnswer)="checkAnswer($event)">
+
+</app-question>
+
+<div *ngIf="!gamaStarted" class="welcome-screen">
+	<img src="../../../assets/images/whoWantsToBeMillionare.png">
+	<fa 
+		class="start-game-icon" 
+		name="fas fa-play-circle"
+		(click)="startGame()">
+	</fa>
+</div>

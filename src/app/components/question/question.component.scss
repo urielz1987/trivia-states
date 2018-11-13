@@ -1,0 +1,127 @@
+.title, .answer {
+    position: relative;
+    height: 50px;
+    width: 600px;
+    background-color: #41109c;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid #ca781a;
+    border-left: none;
+    border-right: none;
+    margin: 0 auto;
+    line-height: 50px;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        background-color: #41109c;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        width: 37px;
+        height: 37px;
+        position: absolute;
+        left: -20px;
+        top: 5px;
+        border: 3px solid #ca781a;
+        border-right: none;
+        border-top: none;
+        z-index: -1;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        background-color: #41109c;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        width: 37px;
+        height: 37px;
+        position: absolute;
+        right: -19px;
+        top: 5px;
+        border: 3px solid #ca781a;
+        border-bottom: none;
+        border-left: none;
+        z-index: -1;
+    }
+}
+
+
+.title {
+    margin-bottom: 5px;
+}
+.answers {
+    width: 620px;
+    margin: 0 auto;
+}
+
+.answer {
+    display: inline-block;
+    margin: 5px 20px;
+    cursor: pointer;
+    width: 270px;
+    height: 30px;
+    line-height: 30px;
+
+    &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: -14px;
+        top: 2px;
+        border: 3px solid #ca781a;
+    }
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -14px;
+        top: 2px;
+        border: 3px solid #ca781a;
+    }
+
+    &:hover {
+        background-color: #da8c33;
+
+        &::before {
+            background-color: #da8c33;
+        }
+
+        &::after {
+            background-color: #da8c33;
+        }
+    }
+
+    &.wrong-answer {
+        background-color: #da8c33;
+
+        &::before {
+            background-color: #da8c33;
+        }
+
+        &::after {
+            background-color: #da8c33;
+        }
+    }
+
+    &.correct-answer {
+        background-color: #28e49c;
+        border: 3px solid #82e7ee;
+        border-left: none;
+        border-right: none;
+
+        &::before {
+            background-color: #28e49c;
+            border: 3px solid #82e7ee;
+        }
+
+        &::after {
+            background-color: #28e49c;
+            border: 3px solid #82e7ee;
+        }
+    }
+}

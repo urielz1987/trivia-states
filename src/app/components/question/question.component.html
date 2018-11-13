@@ -1,0 +1,33 @@
+<div class="title">
+  {{question}}
+</div>
+<div class="answers">
+  <div>
+    <div
+      #answer1 
+      class="answer answer-1" 
+      (click)="answerClick(1);">
+      {{_answer1}}
+    </div>
+    <div
+      #answer2
+      class="answer answer-2" 
+      (click)="answerClick(2);">
+      {{_answer2}}
+    </div>
+  </div>
+  <div>
+    <div 
+      #answer3
+      class="answer answer-3" 
+      (click)="answerClick(3);">
+      {{_answer3}}
+    </div>
+    <div
+      #answer4 
+      class="answer answer-4" 
+      (click)="answerClick(4);">
+      {{_answer4}}
+    </div>
+  </div>
+</div>
