@@ -1,0 +1,8 @@
+<div class="stages">
+    <div
+      *ngFor="let gameStage of stages | reverseArray" 
+      class="stage">
+      {{gameStage | currency: 'USD' : 'symbol' : '1.0'}}
+    </div>
+</div>
+

@@ -1,10 +1,15 @@
-<app-question
-	#question
-	class="container"
-	*ngIf="gamaStarted" 
-	(selectedAnswer)="checkAnswer($event)">
-
-</app-question>
+<div class="row play-screen"
+	*ngIf="gamaStarted">
+	<div class="col-md-9">
+		<app-question
+			#question 
+			(selectedAnswer)="checkAnswer($event)">
+		</app-question>
+	</div>
+	<div class="col-md-3">
+		<app-game-stage></app-game-stage>
+	</div>
+</div> 
 
 <div *ngIf="!gamaStarted" class="welcome-screen">
 	<img src="../../../assets/images/whoWantsToBeMillionare.png">

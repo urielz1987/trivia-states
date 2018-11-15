@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './components/question/question.component';
 import { TriviaManagerComponent } from './components/trivia-manager/trivia-manager.component';
 
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { GameStageComponent } from './components/game-stage/game-stage.component';
+import { ReverseArrayPipe } from './pipes/reverse-array.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionComponent,
-    TriviaManagerComponent
+    TriviaManagerComponent,
+    GameStageComponent,
+    ReverseArrayPipe
   ],
   imports: [
     BrowserModule,
