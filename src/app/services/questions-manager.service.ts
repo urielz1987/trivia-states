@@ -23,7 +23,7 @@ export class QuestionsManagerService {
 			correctAnswer: 3
 		}));
 		this.questionsStore.push(new Question({
-			question: "What year did Canada become independent? ?",
+			question: "In what year did Canada become independent ?",
 			answer1: "1867",
 			answer2: "1820",
 			answer3: "1891",
@@ -41,11 +41,29 @@ export class QuestionsManagerService {
 		}));
 
 		this.questionsStore.push(new Question({
-			question: "What is the capital ciry of province Ontario ?",
+			question: "What is the capital city of Ontario ?",
 			answer1: "Toronto",
 			answer2: "Ottawa–Gatineau",
 			answer3: "Montreal",
 			answer4: "Vancouver",
+			correctAnswer: 1
+		}));
+		
+		this.questionsStore.push(new Question({
+			question: "What is the capital city of Canada ?",
+			answer1: "Ottawa",
+			answer2: "Edmonton",
+			answer3: "London",
+			answer4: "Kingston",
+			correctAnswer: 1
+		}));
+		
+		this.questionsStore.push(new Question({
+			question: "Which of the following is a name of a bridge that connects Niagara Falls Ontario to Niagara Falls New York ?",
+			answer1: "The Rainbow Bridge",
+			answer2: "The Peace Bridge",
+			answer3: "Blue Water Bridge",
+			answer4: "Kingston",
 			correctAnswer: 1
 		}));
 	}

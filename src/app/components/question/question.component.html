@@ -1,33 +1,55 @@
-<div class="title">
-  {{question}}
+<div class="title row">
+  <div class="col-md-12">
+    <section class="question-section">
+      <p class="question-par">
+        {{question}}
+      </p>
+    </section>
+  </div>
 </div>
-<div class="answers">
-  <div>
+<div class="answers container">
+  <div class="pair row">
     <div
       #answer1 
-      class="answer answer-1" 
+      class="answer answer-1 float-left" 
       (click)="answerClick(1);">
-      {{_answer1}}
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer1}}
+          </p>
+      </section>
     </div>
     <div
       #answer2
-      class="answer answer-2" 
+      class="answer answer-2 float-right" 
       (click)="answerClick(2);">
-      {{_answer2}}
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer2}}
+          </p>
+      </section>
     </div>
   </div>
-  <div>
+  <div class="pair row">
     <div 
       #answer3
-      class="answer answer-3" 
+      class="answer answer-3 float-left" 
       (click)="answerClick(3);">
-      {{_answer3}}
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer3}}
+          </p>
+      </section>
     </div>
     <div
       #answer4 
-      class="answer answer-4" 
+      class="answer answer-4 float-right" 
       (click)="answerClick(4);">
-      {{_answer4}}
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer4}}
+          </p>
+      </section>
     </div>
   </div>
 </div>

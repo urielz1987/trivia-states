@@ -11,10 +11,17 @@
     margin: 0 auto;
     .start-game-icon {
         position: absolute;
-        top: 404px;
-        left: 416px;
+        bottom: -16px;
+        right: 12px;
         font-size: 100px;
         color: #DFEAED;
         cursor: pointer;
+    }
+
+    .selected-country {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        font-size: 55px;
     }
 }

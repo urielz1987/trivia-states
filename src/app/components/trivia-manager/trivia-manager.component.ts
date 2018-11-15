@@ -62,8 +62,8 @@ export class TriviaManagerComponent implements OnInit {
 		this.questionBackgroundAudio.pause();
 		let correctAnswerNum = this.questionManager.getCurrentQuestionCorrentAnswer();
 		if (userChoice == correctAnswerNum) {
-			this.correctAnswerAudio.play();
 			this.currentQuestion.setCorrectAnswer(correctAnswerNum);
+			this.correctAnswerAudio.play();
 		} else {
 			this.wrongAnswerAudio.play();
 			this.currentQuestion.setCorrectAnswer(correctAnswerNum);
