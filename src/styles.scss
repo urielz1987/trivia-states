@@ -3,5 +3,10 @@
 
 body {
     background-image: linear-gradient(to right, rgb(32, 19, 99), rgba(55, 74, 206, 0.59));
+
+    &.mobile-mode {
+        height: 100%;
+    }
+
 }
     

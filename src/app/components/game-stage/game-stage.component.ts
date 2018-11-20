@@ -1,33 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-game-stage',
   templateUrl: './game-stage.component.html',
   styleUrls: ['./game-stage.component.scss']
 })
-export class GameStageComponent implements OnInit {
+export class GameStageComponent {
 
-  private stages = [
-    100,
-    200,
-    300,
-    500,
-    1000,
-    2000,
-    4000,
-    8000,
-    16000,
-    32000,
-    64000,
-    125000,
-    250000,
-    500000,
-    1000000
-  ]
+  @Input('currentStage') currentStage;
+
+  @ViewChild('stagesEl') stagesEl: ElementRef;
+
+  private stages = [1000000, 500000, 250000, 125000, 64000, 32000, 16000, 8000, 4000, 2000, 1000, 500, 300, 200, 100]
 
   constructor() { }
 
-  ngOnInit() {
+  public blinkStage(stageNum) {
+    let elementToBlink = this.stagesEl.nativeElement.querySelector(`#stage${stageNum}`);
+    elementToBlink.classList.add("blink-me");
+  }
+
+  public stopBlinkStage(stageNum) {
+    let elementToBlink = this.stagesEl.nativeElement.querySelector(`#stage${stageNum}`);
+    elementToBlink.classList.remove("blink-me");
   }
 
 }

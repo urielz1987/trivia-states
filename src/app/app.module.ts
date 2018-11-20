@@ -9,6 +9,7 @@ import { TriviaManagerComponent } from './components/trivia-manager/trivia-manag
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { GameStageComponent } from './components/game-stage/game-stage.component';
 import { ReverseArrayPipe } from './pipes/reverse-array.pipe';
+import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ReverseArrayPipe } from './pipes/reverse-array.pipe';
     QuestionComponent,
     TriviaManagerComponent,
     GameStageComponent,
-    ReverseArrayPipe
+    ReverseArrayPipe,
+    WelcomeScreenComponent
   ],
   imports: [
     BrowserModule,

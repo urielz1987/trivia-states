@@ -1,0 +1,61 @@
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.welcome-screen {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    margin: 0 auto;
+    
+    .start-game-icon {
+        position: absolute;
+        bottom: -16px;
+        right: 12px;
+        font-size: 100px;
+        color: #DFEAED;
+        cursor: pointer;
+    }
+    
+    .selected-country {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        font-size: 55px;
+    }
+}
+
+:host-context(.mobile-mode) {
+    background-image: linear-gradient(to right, #391657, #341A6799);
+    display: block;
+
+    .welcome-screen {
+        width: 100%;
+        height: 100%;
+    
+        .img-wrapper {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 256px;
+            height: 256px;
+    
+            .start-game-icon {
+                position: absolute;
+                left: 17px;
+                bottom: -131px;
+            }
+            
+            .selected-country {
+                position: absolute;
+                bottom: 12px;
+                left: 10px;
+                font-size: 30px;
+            }
+    
+        }
+    }
+}

@@ -15,12 +15,24 @@
 
         &.passed {
             background-color: #28e49c;
+            background-image: none;
             color: white;
         }
 
         &.current-stage {
             border: 3px solid #ca781a;
+            line-height: 31px;
         }
     }
+
+    .blink-me {
+        animation: blinker 1s linear infinite;
+      }
+      
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
 
 }

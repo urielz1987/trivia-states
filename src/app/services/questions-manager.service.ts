@@ -15,7 +15,7 @@ export class QuestionsManagerService {
 
 	constructor() {
 		this.questionsStore.push(new Question({
-			question: "Who was the first prime minister of Canada ?",
+			question: "Who was the first prime minister of Canada&nbsp;?",
 			answer1: "Alexander Mackenzie",
 			answer2: "Robert Borden",
 			answer3: "John A. Macdonald",
@@ -23,7 +23,7 @@ export class QuestionsManagerService {
 			correctAnswer: 3
 		}));
 		this.questionsStore.push(new Question({
-			question: "In what year did Canada become independent ?",
+			question: "In what year did Canada become independent&nbsp;?",
 			answer1: "1867",
 			answer2: "1820",
 			answer3: "1891",
@@ -32,7 +32,7 @@ export class QuestionsManagerService {
 		}));
 
 		this.questionsStore.push(new Question({
-			question: "How many provinces are there in Canada ?",
+			question: "How many provinces are there in Canada&nbsp;?",
 			answer1: "10",
 			answer2: "6",
 			answer3: "12",
@@ -41,7 +41,7 @@ export class QuestionsManagerService {
 		}));
 
 		this.questionsStore.push(new Question({
-			question: "What is the capital city of Ontario ?",
+			question: "What is the capital city of Ontario&nbsp;?",
 			answer1: "Toronto",
 			answer2: "Ottawa–Gatineau",
 			answer3: "Montreal",
@@ -50,7 +50,7 @@ export class QuestionsManagerService {
 		}));
 		
 		this.questionsStore.push(new Question({
-			question: "What is the capital city of Canada ?",
+			question: "What is the capital city of Canada&nbsp;?",
 			answer1: "Ottawa",
 			answer2: "Edmonton",
 			answer3: "London",
@@ -59,7 +59,7 @@ export class QuestionsManagerService {
 		}));
 		
 		this.questionsStore.push(new Question({
-			question: "Which of the following is a name of a bridge that connects Niagara Falls Ontario to Niagara Falls New York ?",
+			question: "Which of the following is a name of a bridge that connects Niagara Falls Ontario to Niagara Falls New York&nbsp;?",
 			answer1: "The Rainbow Bridge",
 			answer2: "The Peace Bridge",
 			answer3: "Blue Water Bridge",

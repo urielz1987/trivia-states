@@ -9,6 +9,10 @@ import { QuestionComponent } from '../question/question.component';
 
 import { QuestionsManagerService } from 'src/app/services/questions-manager.service';
 
+import { triviaStatesDetails } from '../../others/triviaStatesDetails';
+import { GameStageComponent } from '../game-stage/game-stage.component';
+
+
 @Component({
 	selector: 'app-trivia-manager',
 	templateUrl: './trivia-manager.component.html',
@@ -21,10 +25,14 @@ export class TriviaManagerComponent implements OnInit {
 	private questionBackgroundAudio: HTMLAudioElement;
 
 	private gamaStarted: boolean;
+	private mobileMode;
+	private currentStage = 1;
+
 
 	
 
 	@ViewChild(QuestionComponent) currentQuestion;
+	@ViewChild('gameStage') gameStage: GameStageComponent;
 
 	constructor(
 		private questionManager: QuestionsManagerService, 
@@ -33,11 +41,6 @@ export class TriviaManagerComponent implements OnInit {
 		this.correctAnswerAudio = new Audio();
 		this.correctAnswerAudio.src = '../../../assets/audios/correctAnswer.mp3';
 		this.correctAnswerAudio.load();
-		this.correctAnswerAudio.addEventListener('ended' ,() => {
-			this.questionManager.loadNextQuestion();
-			this.questionBackgroundAudio.currentTime = 0;
-			this.questionBackgroundAudio.play();
-		})
 		
 		this.wrongAnswerAudio = new Audio();
 		this.wrongAnswerAudio.src = '../../../assets/audios/wrongAnswer.mp3';
@@ -49,6 +52,7 @@ export class TriviaManagerComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.mobileMode = triviaStatesDetails.isMobile;
 	}
 	
 	startGame() {
@@ -58,12 +62,28 @@ export class TriviaManagerComponent implements OnInit {
 		this.questionBackgroundAudio.play();
 	}
 
+	playCorrectAnwserAudio() {
+		let endOfCorrectAnswerAudioPromise = new Promise( (res, rej) => {
+			this.correctAnswerAudio.onended = () => {
+				res();
+			}
+		});
+		this.correctAnswerAudio.play();
+		return endOfCorrectAnswerAudioPromise;
+	}
+
 	checkAnswer(userChoice: number) {
 		this.questionBackgroundAudio.pause();
 		let correctAnswerNum = this.questionManager.getCurrentQuestionCorrentAnswer();
 		if (userChoice == correctAnswerNum) {
 			this.currentQuestion.setCorrectAnswer(correctAnswerNum);
-			this.correctAnswerAudio.play();
+			this.gameStage.blinkStage(this.currentStage);
+			this.playCorrectAnwserAudio().then( () => {
+				this.gameStage.stopBlinkStage(this.currentStage);
+				this.currentStage++;
+				this.questionManager.loadNextQuestion();
+				this.questionBackgroundAudio.play();
+			});
 		} else {
 			this.wrongAnswerAudio.play();
 			this.currentQuestion.setCorrectAnswer(correctAnswerNum);

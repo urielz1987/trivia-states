@@ -1,22 +1,17 @@
 <div class="row play-screen"
 	*ngIf="gamaStarted">
-	<div class="col-md-9">
+	<div class="col-md-9 col-xs-12">
 		<app-question
 			#question 
 			(selectedAnswer)="checkAnswer($event)">
 		</app-question>
 	</div>
-	<div class="col-md-3">
-		<app-game-stage></app-game-stage>
+	<div *ngIf="!mobileMode" class="col-md-3 col-xs-12">
+		<app-game-stage [currentStage]="currentStage" #gameStage></app-game-stage>
 	</div>
 </div> 
 
-<div *ngIf="!gamaStarted" class="welcome-screen">
-	<img src="../../../assets/images/whoWantsToBeMillionare.png">
-	<fa 
-		class="start-game-icon" 
-		name="fas fa-play-circle"
-		(click)="startGame()">
-	</fa>
-	<span class="flag-icon flag-icon-ca selected-country"></span>
-</div>
+<app-welcome-screen 
+	*ngIf="!gamaStarted"
+	(startGame)="startGame()">
+</app-welcome-screen>

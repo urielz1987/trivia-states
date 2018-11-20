@@ -67,7 +67,6 @@ export class Question {
 			}
 			// switch the answers
 			[this.answers[idx], this.answers[rndNum]] = [this.answers[rndNum], this.answers[idx]];
-			console.log(idx, rndNum);
 		}
 	}
 }
