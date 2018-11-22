@@ -11,6 +11,9 @@ import { GameStageComponent } from './components/game-stage/game-stage.component
 import { ReverseArrayPipe } from './pipes/reverse-array.pipe';
 import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 
+import { QuestionsManagerService } from './services/questions-manager.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,7 @@ import { WelcomeScreenComponent } from './components/welcome-screen/welcome-scre
     Angular2FontawesomeModule,
     AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [QuestionsManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

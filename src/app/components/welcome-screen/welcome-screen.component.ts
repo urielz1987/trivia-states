@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { triviaStatesDetails } from '../../others/triviaStatesDetails';
 @Component({
   selector: 'app-welcome-screen',
   templateUrl: './welcome-screen.component.html',
@@ -13,7 +12,7 @@ export class WelcomeScreenComponent {
   private imgPath;
   
   constructor() { 
-    if (triviaStatesDetails.isMobile) {
+    if (window.document.documentElement.clientWidth < 768) {
       this.imgPath = "../../../assets/images/whoWantsToBeMillionareMobile.png";
     } else {
       this.imgPath = "../../../assets/images/whoWantsToBeMillionare.png";

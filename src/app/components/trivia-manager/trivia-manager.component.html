@@ -1,12 +1,12 @@
 <div class="row play-screen"
 	*ngIf="gamaStarted">
-	<div class="col-md-9 col-xs-12">
+	<div class="col-md-9">
 		<app-question
 			#question 
 			(selectedAnswer)="checkAnswer($event)">
 		</app-question>
 	</div>
-	<div *ngIf="!mobileMode" class="col-md-3 col-xs-12">
+	<div class="col-md-3">
 		<app-game-stage [currentStage]="currentStage" #gameStage></app-game-stage>
 	</div>
 </div> 

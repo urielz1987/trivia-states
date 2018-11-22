@@ -1,8 +1,13 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { 
+  Component,
+  Input, 
+  ViewChild, 
+  ElementRef 
+} from '@angular/core';
 
 @Component({
   selector: 'app-game-stage',
-  templateUrl: './game-stage.component.html',
+  templateUrl: `./game-stage.component.html`,
   styleUrls: ['./game-stage.component.scss']
 })
 export class GameStageComponent {

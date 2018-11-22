@@ -1,6 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 
-import { triviaStatesDetails } from './others/triviaStatesDetails';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +14,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (document.documentElement.clientWidth < triviaStatesDetails.mobileLimit) {
+    if (window.document.documentElement.clientWidth < 768) {
       // set a class on the body
       this.renderer.addClass(document.body, 'mobile-mode');
-      // set on the windows that it's a mobile
-      triviaStatesDetails.isMobile = true;
     }
   }
 

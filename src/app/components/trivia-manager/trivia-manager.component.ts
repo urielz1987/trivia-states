@@ -9,7 +9,6 @@ import { QuestionComponent } from '../question/question.component';
 
 import { QuestionsManagerService } from 'src/app/services/questions-manager.service';
 
-import { triviaStatesDetails } from '../../others/triviaStatesDetails';
 import { GameStageComponent } from '../game-stage/game-stage.component';
 
 
@@ -52,7 +51,6 @@ export class TriviaManagerComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.mobileMode = triviaStatesDetails.isMobile;
 	}
 	
 	startGame() {

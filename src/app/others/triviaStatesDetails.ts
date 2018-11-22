@@ -1,7 +1,7 @@
-const mobileLimit  = 768;
+
 let triviaStatesDetails = {
     isMobile: false,
-    mobileLimit: mobileLimit
+    mobileLimit: 768
 }
 
-export { triviaStatesDetails };
+export { triviaStatesDetails }
