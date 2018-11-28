@@ -186,3 +186,9 @@
         padding-left: 0px;
     }
 }
+
+:host-context(.mobile-mode) {
+    width: 93%;
+    margin: 0 auto;
+}
+

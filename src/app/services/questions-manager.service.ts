@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Observable, Subscriber } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Question } from '../classes/Question';
 import { IQuestion } from '../interfaces/question';
 
+/*
 @Injectable({
 	providedIn: 'root'
 })
+*/
 export class QuestionsManagerService {
 
-	public questionManager: Observable<IQuestion>;
-	private observer: Subscriber<IQuestion>;
+	public questionManagerSubject: Subject<IQuestion>;
 	private questionsStore: Question[] = [];
-	private currentQuestionNum = 0;
+	private currentQuestionNum = -1;
 
 	constructor() {
 		this.questionsStore.push(new Question({
@@ -69,16 +69,20 @@ export class QuestionsManagerService {
 	}
 
 	public startGame() {
-		this.questionManager = new Observable((observer: Subscriber<IQuestion>) => {
+		this.currentQuestionNum = -1;
+		this.questionManagerSubject = new Subject();
+		/*
+		(observer: Subscriber<IQuestion>) => {
 			this.observer = observer;
 			this.observer.next(this.questionsStore[0].getQuestionForPlay());
-		});
+		}
+		*/
 	}
 
 	public loadNextQuestion() {
 		if ( (this.questionsStore.length -1) > this.currentQuestionNum) {
 			this.currentQuestionNum++;
-			this.observer.next(this.questionsStore[this.currentQuestionNum].getQuestionForPlay());
+			this.questionManagerSubject.next(this.questionsStore[this.currentQuestionNum].getQuestionForPlay());
 		}
 	}
 

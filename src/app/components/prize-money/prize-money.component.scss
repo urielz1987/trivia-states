@@ -1,0 +1,33 @@
+@import '../question/question.component.scss';
+
+.center-in-screen {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    display: block;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    .question-par {
+        font-size: 40px;
+    }
+}  
+
+.total-prize {
+    font-size: 30px;
+    top: 30%;
+    color: #DFEAED;
+    font-weight: bold;
+}
+
+.restart-game {
+    width: 100%;
+    font-size: 100px;
+    top: 76%;
+    color: #DFEAED;
+    cursor: pointer;
+    .restart-game-icon {
+        margin: 0 auto;
+    }
+}

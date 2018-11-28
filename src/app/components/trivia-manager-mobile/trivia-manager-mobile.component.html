@@ -1,0 +1,21 @@
+<div 
+  class="row play-screen">
+  <div>
+    <div class="audio-mute-toggle">
+      <span class="fa-stack">
+        <i class="fa fa-ban fa-stack-2x"></i>
+        <i class="fa fa-volume-up fa-stack-1x"></i>
+      </span>
+    </div>
+    <div class="game-stage">
+        <app-game-stage-mobile 
+        [currentStage]="currentStage" 
+        #gameStage>
+      </app-game-stage-mobile>
+    </div>
+  <div>
+  <app-question-mobile
+    #currentQuestion 
+    (selectedAnswer)="checkAnswer($event)">
+  </app-question-mobile>
+</div> 

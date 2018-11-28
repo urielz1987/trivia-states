@@ -19,11 +19,11 @@ import { IQuestion } from '../../interfaces/question';
 export class QuestionComponent implements OnInit {
 	@Output() selectedAnswer = new EventEmitter<number>();
 
-	private question;
-	private _answer1;
-	private _answer2;
-	private _answer3;
-	private _answer4;
+	protected question;
+	protected _answer1;
+	protected _answer2;
+	protected _answer3;
+	protected _answer4;
 
 	@ViewChild('answer1') answerEl1: ElementRef;
 	@ViewChild('answer2') answerEl2: ElementRef;
@@ -31,23 +31,25 @@ export class QuestionComponent implements OnInit {
 	@ViewChild('answer4') answerEl4: ElementRef;
 
 	ngOnInit() {
-		this.questionsManager.questionManager.subscribe((question: IQuestion) => {
-			// removes previous classes
-			this.answerEl1.nativeElement.classList.remove("correct-answer");
-			this.answerEl2.nativeElement.classList.remove("correct-answer");
-			this.answerEl3.nativeElement.classList.remove("correct-answer");
-			this.answerEl4.nativeElement.classList.remove("correct-answer");
+		this.questionsManager.questionManagerSubject.subscribe((question: IQuestion) => {
+			setTimeout( () => {
+				// removes previous classes
+				this.answerEl1.nativeElement.classList.remove("correct-answer");
+				this.answerEl2.nativeElement.classList.remove("correct-answer");
+				this.answerEl3.nativeElement.classList.remove("correct-answer");
+				this.answerEl4.nativeElement.classList.remove("correct-answer");
 
-			this.answerEl1.nativeElement.classList.remove("wrong-answer");
-			this.answerEl2.nativeElement.classList.remove("wrong-answer");
-			this.answerEl3.nativeElement.classList.remove("wrong-answer");
-			this.answerEl4.nativeElement.classList.remove("wrong-answer");
-			
-			this.question = question.question;
-			this._answer1 = question.answer1
-			this._answer2 = question.answer2
-			this._answer3 = question.answer3
-			this._answer4 = question.answer4
+				this.answerEl1.nativeElement.classList.remove("wrong-answer");
+				this.answerEl2.nativeElement.classList.remove("wrong-answer");
+				this.answerEl3.nativeElement.classList.remove("wrong-answer");
+				this.answerEl4.nativeElement.classList.remove("wrong-answer");
+				
+				this.question = question.question;
+				this._answer1 = question.answer1;
+				this._answer2 = question.answer2;
+				this._answer3 = question.answer3;
+				this._answer4 = question.answer4;
+			});
 		});
 	}
 

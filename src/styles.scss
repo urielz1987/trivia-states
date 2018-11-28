@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-body {
-    background-image: linear-gradient(to right, rgb(32, 19, 99), rgba(55, 74, 206, 0.59));
-
-    &.mobile-mode {
-        height: 100%;
+html {
+    height: 100%;
+    
+    body {
+        background-image: linear-gradient(to right, rgb(32, 19, 99), rgba(55, 74, 206, 0.59));
+        
+        &.mobile-mode {
+            height: 100%;
+        }
+        
     }
-
 }
     

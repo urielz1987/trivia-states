@@ -36,3 +36,19 @@
       }
 
 }
+
+:host-context(.mobile-mode) {
+    width: 100%;
+    margin: 5px 0 10px 0;
+
+    .stages {
+        position: relative;
+        margin: 0 auto;
+        .stage {
+            height: auto;
+            &.current-stage {
+                height: 38px;
+            }
+        }
+    }
+}

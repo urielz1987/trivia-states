@@ -7,3 +7,15 @@
 .play-screen {
     margin-top: 15px;
 }
+
+:host-context(.mobile-mode) {
+    .audio-mute-toggle {
+        color: white;
+        display: inline-block;
+        float: left;
+    }
+    
+    .game-stage {
+        display: inline-block;
+    }
+}
