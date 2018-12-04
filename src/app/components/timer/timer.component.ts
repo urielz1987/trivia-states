@@ -9,7 +9,7 @@ import { ITimerConfiguration } from 'src/app/interfaces/timerConfiguration';
 export class TimerComponent implements OnInit {
 
   private initialTime; 
-  private timeLeft;
+  public timeLeft;
   private timeToStartShow;
   private isPlayInPause;
 
