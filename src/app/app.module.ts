@@ -19,6 +19,8 @@ import { WelcomeScreenComponent } from './components/welcome-screen/welcome-scre
 import { QuestionMobileComponent } from './components/question-mobile/question-mobile.component';
 import { GameStageMobileComponent } from './components/game-stage-mobile/game-stage-mobile.component';
 import { PrizeMoneyComponent } from './components/prize-money/prize-money.component';
+import { TimerComponent } from './components/timer/timer.component';
+import { SecondsDisplayPipe } from './pipes/seconds-display.pipe';
 
 
 
@@ -33,7 +35,9 @@ import { PrizeMoneyComponent } from './components/prize-money/prize-money.compon
     WelcomeScreenComponent,
     QuestionMobileComponent,
     GameStageMobileComponent,
-    PrizeMoneyComponent
+    PrizeMoneyComponent,
+    TimerComponent,
+    SecondsDisplayPipe
   ],
   imports: [
     BrowserModule,

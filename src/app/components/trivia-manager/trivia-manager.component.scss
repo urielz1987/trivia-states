@@ -8,14 +8,56 @@
     margin-top: 15px;
 }
 
-:host-context(.mobile-mode) {
+
+.game-bar {
+    max-width: 750px;
+    margin-bottom: 15px;
+    height: 30px;
+    position: relative;
+
     .audio-mute-toggle {
-        color: white;
         display: inline-block;
         float: left;
+        color: #DFEAED;
+        position: relative; 
+        top: 2px;
+        cursor: pointer;
     }
     
     .game-stage {
         display: inline-block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
+
+    .time-left-timer {
+        float: right;
+    }
+}
+
+:host-context(.desktop-mode) {
+    .game-bar-wrapper {
+        width: 100%;
+
+        .game-bar {
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+:host-context(.mobile-mode) {
+    
+    .game-bar {
+    
+        .audio-mute-toggle {
+            margin-left: 10px;
+        }
+    
+        .time-left-timer {
+            margin-right: 10px;
+        }
+    }
+
 }

@@ -9,7 +9,7 @@
 
     .stage {
         margin: 0 auto;
-        background-image:  radial-gradient(#687cb5 5%, #0b1456 65%);
+        background-image:  radial-gradient(#687cb5 7.14%, #0b1456 92%);
         height: 38px;
         line-height: 38px;
 
@@ -23,17 +23,20 @@
             border: 3px solid #ca781a;
             line-height: 31px;
         }
-    }
 
-    .blink-me {
-        animation: blinker 1s linear infinite;
-      }
-      
-      @keyframes blinker {
-        50% {
-          opacity: 0;
+        &.blink-me {
+            background-color: #0b1456;
+            animation: stageBlinker 1s linear infinite;
         }
-      }
+
+        @keyframes stageBlinker {
+            50% {
+              opacity: 0.5;
+            }
+        }
+    }
+    
+    
 
 }
 
@@ -46,8 +49,10 @@
         margin: 0 auto;
         .stage {
             height: auto;
+            border: none;
+            
             &.current-stage {
-                height: 38px;
+                height: 32px;
             }
         }
     }

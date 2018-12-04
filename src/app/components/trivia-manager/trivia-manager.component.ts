@@ -2,13 +2,16 @@ import {
 	Component,
 	OnInit,
 	ViewChild,
-	ElementRef
+	ElementRef,
+	OnDestroy
 } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { QuestionsManagerService } from 'src/app/services/questions-manager.service';
 
 import { GameStageComponent } from '../game-stage/game-stage.component';
+import { TriviaStatesDetailsService } from 'src/app/services/trivia-states-details.service';
+import { TimerComponent } from '../timer/timer.component';
 
 
 @Component({
@@ -21,6 +24,7 @@ export class TriviaManagerComponent implements OnInit {
 	protected correctAnswerAudio: HTMLAudioElement;
 	protected wrongAnswerAudio: HTMLAudioElement;
 	protected questionBackgroundAudio: HTMLAudioElement;
+	protected isMuted = false;
 
 	protected gamaStarted: boolean;
 	protected mobileMode;
@@ -30,11 +34,13 @@ export class TriviaManagerComponent implements OnInit {
 	
 	@ViewChild('currentQuestion') currentQuestion;
 	@ViewChild('gameStage') gameStage: GameStageComponent;
+	@ViewChild('gameTimer') gameTimer: TimerComponent;
 
 	constructor(
 		private questionManager: QuestionsManagerService, 
 		private elementEl: ElementRef,
-		private router: Router) {
+		private router: Router,
+		private triviaStatesDetailsService: TriviaStatesDetailsService) {
 		// load the audios
 		this.correctAnswerAudio = new Audio();
 		this.correctAnswerAudio.src = '../../../assets/audios/correctAnswer.mp3';
@@ -47,6 +53,10 @@ export class TriviaManagerComponent implements OnInit {
 		this.questionBackgroundAudio = new Audio();
 		this.questionBackgroundAudio.src = '../../../assets/audios/questionBackgroundAudio.mp3';
 		this.questionBackgroundAudio.load();
+
+		// mute
+		this.isMuted = triviaStatesDetailsService.getIsMuted();
+		this.setMuteCfg();
 
 	}
 	
@@ -92,17 +102,29 @@ export class TriviaManagerComponent implements OnInit {
 			this.isPlayInPause = true;
 			// stop background audio
 			this.questionBackgroundAudio.pause();
+			// pause the timer
+			this.gameTimer.pause();
 			this.questionBackgroundAudio.currentTime = 0;
 			let correctAnswerNum = this.questionManager.getCurrentQuestionCorrentAnswer();
 			if (userChoice == correctAnswerNum) {
 				this.currentQuestion.setCorrectAnswer(correctAnswerNum);
 				this.gameStage.blinkStage(this.currentStage);
 				this.playCorrectAnwserAudio().then( () => {
-					this.gameStage.stopBlinkStage(this.currentStage);
-					this.currentStage++;
-					this.questionManager.loadNextQuestion();
-					this.questionBackgroundAudio.play();
-					this.isPlayInPause = false;
+					// if finish the game
+					if (this.currentStage == 15) {
+						this.router.navigate(['Canada/Prize'], {
+							queryParams: {
+								totalPrizeMoney: this.gameStage.getStageTotalMoney(this.currentStage)
+							}
+						});
+					} else {
+						this.gameStage.stopBlinkStage(this.currentStage);
+						this.currentStage++;
+						this.questionManager.loadNextQuestion();
+						this.questionBackgroundAudio.play();
+						this.isPlayInPause = false;
+						this.gameTimer.restart();
+					}
 				});
 			} else {
 				this.wrongAnswerAudio.play();
@@ -110,10 +132,41 @@ export class TriviaManagerComponent implements OnInit {
 				this.currentQuestion.setWrongAnswer(userChoice);
 				this.gameEnded = true;
 				this.playWrongAnwserAudio().then( () => {
-					this.router.navigateByUrl('Canada/Prize');
+					this.router.navigate(['Canada/Prize'], {
+						queryParams: {
+							totalPrizeMoney: this.gameStage.getStageTotalMoney(this.currentStage)
+						}
+					});
 				});
 			}
 		}
 	}
+
+	questionTimeout() {
+		this.isPlayInPause = true;
+		let correctAnswerNum = this.questionManager.getCurrentQuestionCorrentAnswer();
+		this.currentQuestion.setCorrectAnswer(correctAnswerNum);
+		setTimeout(() => {
+			this.router.navigate(['Canada/Prize'], {
+				queryParams: {
+					totalPrizeMoney: this.gameStage.getStageTotalMoney(this.currentStage)
+				}
+			});
+		}, 5000);
+	}
+
+	toggleMute() {
+		this.isMuted = !this.isMuted;
+		this.setMuteCfg();
+		this.triviaStatesDetailsService.toggleMute();
+	}
+
+	private setMuteCfg() {
+		this.questionBackgroundAudio.muted = this.isMuted;
+		this.correctAnswerAudio.muted = this.isMuted;
+		this.wrongAnswerAudio.muted = this.isMuted;
+	}
+
+	
 
 }

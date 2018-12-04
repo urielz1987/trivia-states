@@ -47,6 +47,7 @@
 
 .pair {
     margin-bottom: 15px;
+    height: 60px;
 }
 
 .title {
@@ -135,15 +136,28 @@
         border: 3px solid #82e7ee;
         border-left: none;
         border-right: none;
+        animation: correctAnswerBlinker 1s linear infinite;
 
-        &::before {
-            background-color: #28e49c;
-            border: 3px solid #82e7ee;
+        @keyframes correctAnswerBlinker {
+            50% {
+              opacity: 0.5;
+            }
         }
-
+        
+        &::before {
+            background-color: inherit;
+            border-left: 3px solid #82e7ee;
+            border-top: none;
+            border-bottom: 3px solid #82e7ee;
+            border-right: none;
+        }
+        
         &::after {
-            background-color: #28e49c;
-            border: 3px solid #82e7ee;
+            background-color: inherit;
+            border-left: none;
+            border-top: 3px solid #82e7ee;
+            border-bottom: none;
+            border-right: 3px solid #82e7ee;
         }
     }
 }

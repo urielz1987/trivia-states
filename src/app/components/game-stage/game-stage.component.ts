@@ -30,4 +30,13 @@ export class GameStageComponent {
     elementToBlink.classList.remove("blink-me");
   }
 
+  public getStageTotalMoney(stageNum) {
+    if ((15 - stageNum + 1) <= 14)  {
+      return this.stages[15 - stageNum +1];
+    } else {
+      return 0;
+    }
+
+  }
+
 }

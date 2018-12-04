@@ -26,6 +26,12 @@
     }
 }
 
+:host-context(.desktop-mode) {
+    .welcome-screen {
+        margin-top: 20px;
+    }
+}
+
 :host-context(.mobile-mode) {
     background-image: linear-gradient(to right, #391657, #341A6799);
     display: block;

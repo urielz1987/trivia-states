@@ -7,6 +7,7 @@ import { TriviaManagerMobileComponent } from '../trivia-manager-mobile/trivia-ma
 
 import { TriviaStatesDetailsService } from '../../services/trivia-states-details.service'
 import { QuestionsManagerService } from '../../services/questions-manager.service';
+import { TriviaManagerComponent } from '../trivia-manager/trivia-manager.component';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class WelcomeScreenComponent {
     if (this.triviaStatesDetailsService.getIsMobile()) {
       this.router.config.unshift({ path: 'Canada/Play', component: TriviaManagerMobileComponent });
     } else {
-
+      this.router.config.unshift({ path: 'Canada/Play', component: TriviaManagerComponent });
     }
   }
 

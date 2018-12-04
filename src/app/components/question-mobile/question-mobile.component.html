@@ -1,52 +1,52 @@
 <div class="title">
-    <div>
-      <section class="question-section">
-        <p class="question-par" [innerHTML]="question">
-        </p>
+  <div>
+    <section class="question-section">
+      <p class="question-par" [innerHTML]="question">
+      </p>
+    </section>
+  </div>
+</div>
+<div class="answers">
+    <div
+      #answer1 
+      class="answer answer-1" 
+      (click)="answerClick(1);">
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer1}}
+          </p>
       </section>
     </div>
-  </div>
-  <div class="answers">
-      <div
-        #answer1 
-        class="answer answer-1" 
-        (click)="answerClick(1);">
-        <section class="answer-section">
-            <p class="answer-par">
-              {{_answer1}}
-            </p>
-        </section>
-      </div>
-      <div
-        #answer2
-        class="answer answer-2" 
-        (click)="answerClick(2);">
-        <section class="answer-section">
-            <p class="answer-par">
-              {{_answer2}}
-            </p>
-        </section>
-      </div>
-      
-      <div 
-        #answer3
-        class="answer answer-3" 
-        (click)="answerClick(3);">
-        <section class="answer-section">
-            <p class="answer-par">
-              {{_answer3}}
-            </p>
-        </section>
-      </div>
-      <div
-        #answer4 
-        class="answer answer-4" 
-        (click)="answerClick(4);">
-        <section class="answer-section">
-            <p class="answer-par">
-              {{_answer4}}
-            </p>
-        </section>
-      </div>
-  </div>
+    <div
+      #answer2
+      class="answer answer-2" 
+      (click)="answerClick(2);">
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer2}}
+          </p>
+      </section>
+    </div>
+    
+    <div 
+      #answer3
+      class="answer answer-3" 
+      (click)="answerClick(3);">
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer3}}
+          </p>
+      </section>
+    </div>
+    <div
+      #answer4 
+      class="answer answer-4" 
+      (click)="answerClick(4);">
+      <section class="answer-section">
+          <p class="answer-par">
+            {{_answer4}}
+          </p>
+      </section>
+    </div>
+</div>
   

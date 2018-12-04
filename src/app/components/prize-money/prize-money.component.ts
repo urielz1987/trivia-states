@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { QuestionsManagerService } from 'src/app/services/questions-manager.service';
 
 @Component({
@@ -9,11 +9,18 @@ import { QuestionsManagerService } from 'src/app/services/questions-manager.serv
 })
 export class PrizeMoneyComponent implements OnInit {
 
+  private totalPrizeMoney;
+
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private questionsManagerService: QuestionsManagerService) { }
 
   ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        this.totalPrizeMoney = params.totalPrizeMoney
+      });
   }
 
   goToWelcomePage() {

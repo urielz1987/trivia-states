@@ -1,17 +1,34 @@
-<div class="row play-screen"
-	*ngIf="gamaStarted">
+<div class="row play-screen">
 	<div class="col-sm-9">
-		<app-question
-			#currentQuestion 
-			(selectedAnswer)="checkAnswer($event)">
-		</app-question>
+		<div class="game-bar-wrapper">
+			<div class="game-bar">
+					<div 
+					class="audio-mute-toggle" 
+					(click)="toggleMute()">
+					<span class="fa-stack">
+						<i class="fa fa-ban fa-stack-2x" *ngIf="!isMuted"></i>
+						<i class="fa fa-volume-up fa-stack-1x"></i>
+					</span>
+				</div>
+				<div class="time-left-timer">
+					<app-timer 
+						[cfg]="{ initialTime: 30, timeToStartShow: 30 }"
+						(timerTimeout)="questionTimeout()"
+						#gameTimer>
+					</app-timer>
+				</div>
+			</div>
+		</div>
+		<div>
+			<app-question
+				#currentQuestion 
+				(selectedAnswer)="checkAnswer($event)">
+			</app-question>
+		</div>
 	</div>
 	<div class="col-sm-3">
-		<app-game-stage [currentStage]="currentStage" #gameStage></app-game-stage>
-	</div>
-</div> 
+		<app-game-stage [currentStage]="currentStage" #gameStage>
 
-<app-welcome-screen 
-	*ngIf="!gamaStarted"
-	(startGame)="startGame()">
-</app-welcome-screen>
+		</app-game-stage>
+	</div>
+</div>

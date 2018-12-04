@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
       // set a class on the body
       this.renderer.addClass(document.body, 'mobile-mode');
       this.isMobile = true;
+    } else {
+      this.renderer.addClass(document.body, 'desktop-mode');
     }
   }
 
