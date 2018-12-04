@@ -106,19 +106,7 @@
         top: 6px;
         border: 3px solid #ca781a;
     }
-
-    &:hover {
-        background-color: #da8c33;
-
-        &::before {
-            background-color: #da8c33;
-        }
-
-        &::after {
-            background-color: #da8c33;
-        }
-    }
-
+    
     &.wrong-answer {
         background-color: #da8c33;
 
@@ -162,7 +150,26 @@
     }
 }
 
+:host-context(.desktop-mode) {
+    .answer {
+        &:hover {
+            background-color: #da8c33;
+            
+            &::before {
+                background-color: #da8c33;
+            }
+            
+            &::after {
+                background-color: #da8c33;
+            }
+        }
+    }
+}
+
 :host-context(.mobile-mode) {
+    width: 93%;
+    margin: 0 auto;
+
     .title {
         width: 78%;
         margin: 0 auto;
@@ -199,10 +206,5 @@
         font-size: 15px;
         padding-left: 0px;
     }
-}
-
-:host-context(.mobile-mode) {
-    width: 93%;
-    margin: 0 auto;
 }
 

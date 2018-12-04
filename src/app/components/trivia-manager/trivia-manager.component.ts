@@ -58,6 +58,21 @@ export class TriviaManagerComponent implements OnInit {
 		this.isMuted = triviaStatesDetailsService.getIsMuted();
 		this.setMuteCfg();
 
+		if (triviaStatesDetailsService.getIsMobile()) {
+			// on onblur and on focus
+			window.onblur =  () => {
+				console.log("Blur");
+				this.questionBackgroundAudio.muted = true;
+				this.correctAnswerAudio.muted = true;
+				this.wrongAnswerAudio.muted = true;
+			};
+			
+			window.onfocus = () => {
+				console.log("Focus");
+				this.setMuteCfg();
+			};
+		}
+			
 	}
 	
 	ngOnInit() {
@@ -114,7 +129,7 @@ export class TriviaManagerComponent implements OnInit {
 					if (this.currentStage == 15) {
 						this.router.navigate(['Canada/Prize'], {
 							queryParams: {
-								totalPrizeMoney: this.gameStage.getStageTotalMoney(this.currentStage)
+								totalPrizeMoney: this.gameStage.getStageTotalMoney(this.currentStage + 1)
 							}
 						});
 					} else {
