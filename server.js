@@ -8,8 +8,8 @@ app.listen(process.env.PORT || 8080);
 
 // PathLocationStrategy
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
+app.get('*', function (req, res) {
+    res.status(200).sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
 console.log('Console listening!');
