@@ -21,16 +21,16 @@ import { TimerComponent } from '../timer/timer.component';
 })
 export class TriviaManagerComponent implements OnInit {
 
-	protected correctAnswerAudio: HTMLAudioElement;
-	protected wrongAnswerAudio: HTMLAudioElement;
-	protected questionBackgroundAudio: HTMLAudioElement;
-	protected isMuted = false;
+	public correctAnswerAudio: HTMLAudioElement;
+	public wrongAnswerAudio: HTMLAudioElement;
+	public questionBackgroundAudio: HTMLAudioElement;
+	public isMuted = false;
 
-	protected gamaStarted: boolean;
-	protected mobileMode;
-	protected currentStage = 1;
-	protected isPlayInPause = false;
-	protected gameEnded = false;
+	public gamaStarted: boolean;
+	public mobileMode;
+	public currentStage = 1;
+	public isPlayInPause = false;
+	public gameEnded = false;
 	
 	@ViewChild('currentQuestion') currentQuestion;
 	@ViewChild('gameStage') gameStage: GameStageComponent;

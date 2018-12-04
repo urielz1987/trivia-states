@@ -19,7 +19,7 @@ export class WelcomeScreenComponent {
 
   @Output('startGame') _startGame = new EventEmitter<string>();
 
-  private imgPath;
+  public imgPath;
   
   constructor(
     private triviaStatesDetailsService: TriviaStatesDetailsService,

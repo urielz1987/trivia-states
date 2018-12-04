@@ -9,7 +9,7 @@ import { QuestionsManagerService } from 'src/app/services/questions-manager.serv
 })
 export class PrizeMoneyComponent implements OnInit {
 
-  private totalPrizeMoney;
+  public totalPrizeMoney;
 
   constructor(
     private route: ActivatedRoute,

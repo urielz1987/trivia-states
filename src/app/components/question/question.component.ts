@@ -19,11 +19,11 @@ import { IQuestion } from '../../interfaces/question';
 export class QuestionComponent implements OnInit {
 	@Output() selectedAnswer = new EventEmitter<number>();
 
-	protected question;
-	protected _answer1;
-	protected _answer2;
-	protected _answer3;
-	protected _answer4;
+	public question;
+	public _answer1;
+	public _answer2;
+	public _answer3;
+	public _answer4;
 
 	@ViewChild('answer1') answerEl1: ElementRef;
 	@ViewChild('answer2') answerEl2: ElementRef;
